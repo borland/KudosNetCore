@@ -1,0 +1,31 @@
+﻿@model KudosNetCore.Model.Kudo[]
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style type="text/css">
+    th { text-align: right; }
+    td { padding: 2px; }
+</style>
+
+
+<form asp-controller="Home" asp-action="CreateKudo">
+
+    <table>
+        <tr>
+            <th>Who's it for?</th>
+            <td><input type="text" name="ForWho" /></td>
+        </tr>
+        <tr>
+            <th>The message:</th>
+            <td><textarea rows="10" cols="80" name="Message"></textarea></td>
+        </tr>
+        <tr>
+            <th>Your name (optional, anonymous Kudos are fine)</th>
+            <td><input type="text" name="CreatedBy" /></td>
+        </tr>
+        <tr>
+            <th></th>
+            <td><input type="submit" /></td>
+        </tr>
+    </table>
+</form>

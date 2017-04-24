@@ -1,0 +1,18 @@
+﻿@model KudosNetCore.Model.User
+@{
+    ViewData["Title"] = "Edit User";
+}
+<style type="text/css">
+    th {
+        text-align: right;
+    }
+
+    td {
+        padding: 2px;
+    }
+</style>
+
+
+<form asp-action="Edit">
+    @Html.Partial("_Edit", Model);
+</form>
