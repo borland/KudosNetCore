@@ -1,0 +1,15 @@
+﻿@model KudosNetCore.Model.Team
+@if(ViewData["Exception"] is Exception) {
+    var exception = (Exception)ViewData["Exception"];
+    <div class="has-error">@exception.Message</div>
+}
+<table>
+    <tr>
+        <th><label asp-for="Name">Name:</label></th>
+        <td><input asp-for="Name" /></td>
+    </tr>
+    <tr>
+        <th></th>
+        <td><input type="submit" /></td>
+    </tr>
+</table>

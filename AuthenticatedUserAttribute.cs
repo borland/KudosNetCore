@@ -25,7 +25,7 @@ namespace KudosNetCore
 
             public bool IsAuthenticated => true;
 
-            public string Name => User.FullName;
+            public string Name => User.FullName ?? User.Username;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)

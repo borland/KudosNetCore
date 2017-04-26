@@ -1,0 +1,27 @@
+﻿@model KudosNetCore.Model.Team[]
+@{
+    ViewData["Title"] = "Administer Teams";
+}
+<style type="text/css">
+    th, td {
+        border: 1px solid gray;
+        border-collapse: collapse;
+        padding: 2px;
+    }
+</style>
+
+<table style="width: 75%; margin: 5px;">
+    <tr>
+        <th>Name</th>
+        <th>&nbsp;</th>
+    </tr>
+    @foreach(var team in Model) {
+        <tr>
+            <td>@team.Name</td>
+            <td><a asp-action="Edit" asp-route-id="@team.Id">Edit</a> </td>
+        </tr>
+    }
+</table>
+
+<a asp-action="Create">Create New Team</a>
+

@@ -9,12 +9,9 @@ namespace KudosNetCore
     // Copied and Adapted from https://cmatskas.com/-net-password-hashing-using-pbkdf2/
     public class Pbkdf2
     {
-        public const int SaltByteSize = 24;
-        public const int HashByteSize = 20; // to match the size of the PBKDF2-HMAC-SHA-1 hash 
-        public const int Pbkdf2Iterations = 1000;
-        public const int IterationIndex = 0;
-        public const int SaltIndex = 1;
-        public const int Pbkdf2Index = 2;
+        public const int SaltByteSize = 32;
+        public const int HashByteSize = 32;
+        public const int Pbkdf2Iterations = 10_000;
 
         public static (byte[] salt, byte[] hash) HashPassword(string password, int iterations = Pbkdf2Iterations)
         {
@@ -41,11 +38,7 @@ namespace KudosNetCore
             return diff == 0;
         }
 
-        private static byte[] GetPbkdf2Bytes(string password, byte[] salt, int iterations, int outputBytes)
-        {
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt);
-            pbkdf2.IterationCount = iterations;
-            return pbkdf2.GetBytes(outputBytes);
-        }
+        private static byte[] GetPbkdf2Bytes(string password, byte[] salt, int iterations, int outputSize)
+            => new Rfc2898DeriveBytes(password, salt, iterations).GetBytes(outputSize);
     }
 }

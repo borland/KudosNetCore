@@ -1,4 +1,4 @@
-﻿@model KudosNetCore.ViewModels.EditUser
+﻿@model KudosNetCore.Model.Team
 @{
     ViewData["Title"] = "Edit User";
 }
@@ -20,7 +20,7 @@
 <br /><br />
 
 <script type="text/javascript">
-    function deleteUser(userId) {
+    function deleteTeam(userId) {
         $.ajax({
             type: "DELETE",
             url: window.location,
@@ -30,4 +30,4 @@
         });
     }
 </script>
-<input type="button" value="Delete User" onclick="deleteUser(@Model.Id)" />
+<input type="button" value="Delete Team" onclick="deleteUser(@Model.Id)" />

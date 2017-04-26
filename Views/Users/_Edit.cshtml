@@ -1,20 +1,24 @@
-﻿@model KudosNetCore.Model.User
+﻿@model KudosNetCore.ViewModels.EditUser
+@if(ViewData["Exception"] is Exception) {
+    var exception = (Exception)ViewData["Exception"];
+    <div class="has-error">@exception.Message</div>
+}
 <table>
     <tr>
-        <th>Full Name:</th>
+        <th><label asp-for="FullName">Full Name:</label></th>
         <td><input asp-for="FullName" /></td>
     </tr>
     <tr>
-        <th>Username:</th>
+        <th><label asp-for="Username">Username:</label></th>
         <td><input asp-for="Username" /></td>
     </tr>
     <tr>
-        <th>Password:</th>
+        <th><label asp-for="Password">Password:</label></th>
         <td><input type="password" asp-for="Password"></td>
     </tr>
     <tr>
-        <th>Is Admin:</th>
-        <td><input type="checkbox" name="IsAdmin"></td> <!-- TODO map this to the enum somehow -->
+        <th><label asp-for="IsAdmin">Is Admin:</label></th>
+        <td><input type="checkbox" asp-for="IsAdmin"></td>
     </tr>
     <tr>
         <th></th>
